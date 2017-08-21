@@ -89,8 +89,9 @@ var showNext = function () {
 var getTabLinks = document.querySelectorAll(".tabs a");
 for (var aL = 0; aL < getTabLinks.length; aL++){
     getTabLinks[aL].onclick = function(){
+        if(document.querySelectorAll(".tabs a.activeTab").length > 0)
+            document.querySelectorAll(".tabs a.activeTab")[0].removeAttribute("class");
         this.className = "activeTab";
-        //debugger;
-        //document.querySelectorAll(".activeTab")[0];
+        return false;
     }
 }
